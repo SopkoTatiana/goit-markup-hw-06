@@ -854,9 +854,11 @@ img {
 }
 
 .checkbox-label {
+ 
    display: flex;
-   justify-content: center;
-   align-items: center;
+   justify-content: center;   
+   align-items: center; 
+   gap: 5px;
 
    margin-top: 20px;
    margin-bottom: 30px;   
@@ -870,8 +872,10 @@ img {
    letter-spacing: 0.03em;
    
    color: var(--text-color);
+ 
+  
 }
-.checkbox-label a {
+.checkbox-label a {  
    
    margin-left: 5px;
    font-family: 'Roboto';
@@ -887,25 +891,28 @@ img {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
-
-   position: absolute;
-}
-.checkbox-icon {
-   display: inline-block;
    width: 15px;
    height: 15px;
-   border: 2px solid #000000;
+
+   outline: 2px solid transparent;
+   outline-offset: -2px;
+   border: 2px solid #212121;
    border-radius: 3px;
-   margin-right: 10px;
 
-   cursor: pointer;
-
-}
-.checkbox:checked + .checkbox-icon {
-   border-color: transparent;
-   background-color: var(--accent-color);
    background-origin: border-box;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 0;
+   transition: background-size 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), outline-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
+.checkbox:checked {
+   outline-color: var(--accent-color);
+   background-color: var(--accent-color);
+   background-image: url("data:image/svg+xml,%3Csvg width='13' height='10' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.95703 4.75166L1.88825 4.68604L1.81923 4.75141L0.93123 5.59258L0.854858 5.66492L0.930974 5.73753L4.42671 9.07236L4.49574 9.1382L4.56476 9.07236L12.069 1.91352L12.1449 1.84116L12.069 1.76881L11.1873 0.927644L11.1183 0.861826L11.0493 0.927611L4.49577 7.17353L1.95703 4.75166Z' fill='white' stroke='white' stroke-width='0.2'/%3E%3C/svg%3E%0A");
+   background-size: 11px 8px;
+}
+
 
 
 .btn-send {
@@ -913,11 +920,8 @@ img {
    align-items: center;
    height: 50px;
    padding: 10px 52px;
-   margin-bottom: 40px;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 0;
-
+   margin: 0 auto;
+   
    font-family: 'Roboto';
    font-style: normal;
    font-weight: 700;
